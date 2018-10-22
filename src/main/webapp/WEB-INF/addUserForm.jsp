@@ -14,20 +14,13 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-<title>User Details</title>
-
-<h2>User Details </h2>
-<table>
-    <tr>
-        <td><b>ID</b></td>
-        <td>${user.id }</td>
-    </tr>
-    <tr>
-        <td><b>First Name</b></td>
-        <td>${user.firstName }</td>
-    </tr>
-    <tr>
-        <td><b>Last Name</b></td>
-        <td>${user.lastName }</td>
-    </tr>
-</table>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<t:layout title="Add User">
+<t:errorMessage message="${errorMessage}" />
+<t:form action="addUser">
+    <t:textfield name="id" label="ID" required="true"/>
+    <t:textfield name="firstName" label="First Name" required="true"/>
+    <t:textfield name="lastName" label="Last Name" required="true"/>
+    <t:submit/>
+</t:form>
+</t:layout>

@@ -1,5 +1,4 @@
 <!--
-
 Licensed to the Apache Software Foundation (ASF) under one or more
 contributor license agreements. See the NOTICE file distributed with
 this work for additional information regarding copyright ownership.
@@ -14,7 +13,31 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-
 -->
-<%@ taglib prefix="s" uri="/struts-tags" %>
 
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<jsp:useBean id="users" type="java.util.List<org.superbiz.struts.User>" scope="request" />
+
+<t:layout title="All Users">
+
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="${users}" var="u">
+            <tr>
+                <td>${u.id }</td>
+                <td>${u.firstName }</td>
+                <td>${u.lastName }</td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+</t:layout>

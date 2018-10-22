@@ -14,6 +14,20 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-<title>User added</title>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<jsp:useBean id="user" type="org.superbiz.struts.User" scope="request" />
 
-<h3>User added successfully</h3>
+<t:layout title="User Details">
+
+    <h2>User Details </h2>
+    <dl>
+            <dt><b>ID</b></dt>
+            <dd>${user.id }</dd>
+
+            <dt><b>First Name</b></dt>
+            <dd>${user.firstName }</dd>
+
+            <dt><b>Last Name</b></dt>
+            <dd>${user.lastName }</dd>
+    </dl>
+</t:layout>
